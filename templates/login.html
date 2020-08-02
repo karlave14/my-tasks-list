@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+{% from '_macro.html' import render_field %}
+<div class="container">
+    <div class="card  mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <form name="login" id ="usuario_nuevo" method="POST">
+                <h2>Inicia sesión</h2>
+                {{ render_field(form.email)}}
+                {{ render_field(form.password)}}
+                <button type="submit" class="btn btn-lg mt-3 mi_boton">iniciar</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

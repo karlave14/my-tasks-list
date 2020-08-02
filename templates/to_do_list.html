@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="table_cointainer"> 
+<h2>Lista de tareas</h2>
+
+<form method="POST" >
+  <div class="row">
+    <div class="col-md-10 "> 
+  <div class="form-group  mb-2">
+    <label for="inputPassword2" class="sr-only">Escribe tu tarea</label>
+
+    <input type="text" class="form-control" id="inputPassword2" placeholder="Escribe tu tarea " name="task">
+  </div>
+</div>
+<div class="col-md-2 ">
+  <button type="submit " class="btn listar ">Enlistar</button>
+</div>
+</div>
+</form>
+
+<table class="table color">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tarea</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for tarea in tareas %}
+    {% if tarea[2] == 0 %}
+    <tr class="tarea_finalizada"> 
+      <th scope="row">  {{ loop.index }} </th>
+      <td>{{tarea[1]}}</td>
+      <td> <a href="/desmarcado/{{tarea[0]}}" > <button class="btn  boton">Desmarcar</button> </a> </td>
+    </tr>
+    {% endif %}
+    {% if tarea[2] == 1 %}
+      <tr class="tarea_activa">  
+        <th scope="row">{{ loop.index }} </th>
+        <td>{{tarea[1]}}</td>
+        <td> <a href="/completar/{{tarea[0]}}" > <button class="btn botoon">Completado</button> </a> </td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+  
+
+{% endblock %}
