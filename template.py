@@ -7,7 +7,6 @@ from flask import redirect, url_for
 from flask import session
 from flaskext.mysql import MySQL
 
-
 app = Flask(__name__)
 app.secret_key='my_secret_key'
 
